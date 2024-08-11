@@ -1,5 +1,5 @@
-## ** Patrón Observer **
-** Patron Observer: ** También llamado Publiser-Subscriber o Event-Subscriber. Es un patrón de diseño que permite definir un mecanismo de suscripción para notificar a varios objetos sobre cualquier evento que le suceda al objeto que están observando.
+## **Patrón Observer**
+**Patron Observer:** También llamado Publiser-Subscriber o Event-Subscriber. Es un patrón de diseño que permite definir un mecanismo de suscripción para notificar a varios objetos sobre cualquier evento que le suceda al objeto que están observando.
 
 
 Tenemos dos tipos de objetos: un Cliente y una Tienda. El cliente está interesado en un producto particular que estára disponible muy pronto. 
