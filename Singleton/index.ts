@@ -14,35 +14,45 @@ siempre se devolverá el mismo objeto.
 
 // La clase singleton defina una instance() getter 
 // que permite a los clientes acceder a la instace que es unica
-class Singleton{
+class Singleton {
 
     // Instance es un método privado y estatico de la clase (se define asi con el # para encapsularlo dentro de todas las instancias de la clase)
     static #instance: Singleton;
-
+    randomNumber: number;
 
     // EL constructor lo hacemos privado para prevenir
     // llamadas al constructor con el operador "new"
-    private constructor() {}
+    private constructor(randomNumber: number) {
+        this.randomNumber = randomNumber;
+    }
 
     // instance es un getter que me permite crear la unica instancia de la clase
     public static get instance(): Singleton {
-        if (!Singleton.#instance){
-            Singleton.#instance = new Singleton();
+        if (!Singleton.#instance) {
+            Singleton.#instance = new Singleton((Math.random()));
         }
         return Singleton.#instance;
     }
 
     // Logica de negocio aqui
+    public generateRandomNumber() {
+        this.randomNumber = Math.random();
+        return this.randomNumber
+    }
 }
 
-function clientCode(){
-    const s1 = Singleton.instance;
-    const s2 = Singleton.instance;
+function clientCode() {
+    const s1 = Singleton.instance.randomNumber;
+    const s2 = Singleton.instance.randomNumber;
 
-    if (s1 === s2){
-        console.log("Singleton Works, son iguales")
+    const s3 = Singleton.instance.generateRandomNumber();
+    const s4 = Singleton.instance.generateRandomNumber();
+
+    if (s1 === s2) {
+        console.log(s1, s2);
+        console.log(s3, s4);
     } else {
-        console.log("Singleton Failes, no son iguales")
+        console.log("No son iguales")
     }
 }
 
